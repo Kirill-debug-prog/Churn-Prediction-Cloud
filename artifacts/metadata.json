@@ -1,0 +1,247 @@
+{
+  "project": "Churn Prediction Cloud",
+  "created_at": "2026-10-29 11:16:25 UTC",
+  "dataset": {
+    "title": "Iranian Churn",
+    "citation": "Iranian Churn [Dataset]. (2020). UCI Machine Learning Repository. https://doi.org/10.24432/C5JW3Z",
+    "url": "https://archive.ics.uci.edu/dataset/563/iranian+churn+dataset",
+    "doi": "10.24432/C5JW3Z",
+    "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "rows_used": 2850
+  },
+  "model": {
+    "name": "random_forest",
+    "label": "Случайный лес (randomForest)",
+    "type": "random_forest",
+    "positive_class": "churn",
+    "threshold": 0.31,
+    "hyperparameters": {
+      "mtry": 3,
+      "nodesize": 5,
+      "ntree": 300
+    }
+  },
+  "class_labels": {
+    "churn": "Вероятен отток клиента",
+    "no_churn": "Отток клиента маловероятен"
+  },
+  "features": [
+    {
+      "name": "call_failure",
+      "type": "numeric",
+      "label": "Сбои при звонках",
+      "description": "Количество неудачных звонков (сбоев связи) за период",
+      "integer": true,
+      "min": 0,
+      "max": 36,
+      "default": 6
+    },
+    {
+      "name": "complains",
+      "type": "categorical",
+      "label": "Жалобы",
+      "description": "Подавал ли клиент жалобы",
+      "levels": [
+        {
+          "value": "0",
+          "label": "Жалоб не было"
+        },
+        {
+          "value": "1",
+          "label": "Была жалоба"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "name": "subscription_length",
+      "type": "numeric",
+      "label": "Срок подписки, мес.",
+      "description": "Общая длительность подписки в месяцах",
+      "integer": true,
+      "min": 3,
+      "max": 47,
+      "default": 35
+    },
+    {
+      "name": "charge_amount",
+      "type": "categorical",
+      "label": "Уровень начислений",
+      "description": "Порядковая шкала: 0 - самый низкий уровень, 9 - самый высокий",
+      "levels": [
+        {
+          "value": "0",
+          "label": "0"
+        },
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "7",
+          "label": "7"
+        },
+        {
+          "value": "8",
+          "label": "8"
+        },
+        {
+          "value": "9",
+          "label": "9"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "name": "seconds_of_use",
+      "type": "numeric",
+      "label": "Секунд разговора",
+      "description": "Суммарная длительность звонков в секундах",
+      "integer": true,
+      "min": 0,
+      "max": 16980,
+      "default": 3038
+    },
+    {
+      "name": "frequency_of_use",
+      "type": "numeric",
+      "label": "Число звонков",
+      "description": "Общее количество звонков",
+      "integer": true,
+      "min": 0,
+      "max": 254,
+      "default": 54
+    },
+    {
+      "name": "frequency_of_sms",
+      "type": "numeric",
+      "label": "Число SMS",
+      "description": "Общее количество текстовых сообщений",
+      "integer": true,
+      "min": 0,
+      "max": 522,
+      "default": 22
+    },
+    {
+      "name": "distinct_called_numbers",
+      "type": "numeric",
+      "label": "Уникальных номеров",
+      "description": "Количество различных номеров, на которые звонил клиент",
+      "integer": true,
+      "min": 0,
+      "max": 97,
+      "default": 21
+    },
+    {
+      "name": "age_group",
+      "type": "categorical",
+      "label": "Возрастная группа",
+      "description": "Порядковая шкала: 1 - младшая группа, 5 - старшая группа",
+      "levels": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "name": "tariff_plan",
+      "type": "categorical",
+      "label": "Тарифный план",
+      "description": "Тип тарифа",
+      "levels": [
+        {
+          "value": "1",
+          "label": "Оплата по факту (pay as you go)"
+        },
+        {
+          "value": "2",
+          "label": "Контракт"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "name": "status",
+      "type": "categorical",
+      "label": "Статус клиента",
+      "description": "Статус клиента за период наблюдения",
+      "levels": [
+        {
+          "value": "1",
+          "label": "Активен"
+        },
+        {
+          "value": "2",
+          "label": "Неактивен"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "name": "customer_value",
+      "type": "numeric",
+      "label": "Ценность клиента",
+      "description": "Рассчитанная ценность клиента (формула в документации набора не раскрыта)",
+      "integer": false,
+      "min": 0,
+      "max": 2149.28,
+      "default": 230.38
+    }
+  ],
+  "request_format": {
+    "method": "POST",
+    "path": "/predict",
+    "body": "{\"features\": {\"<имя признака>\": <значение>, ...}}"
+  },
+  "versions": {
+    "r": "R version 4.6.1 (2026-06-24)",
+    "rpart": "4.1.27",
+    "randomForest": "4.7.1.2",
+    "pROC": "1.19.1",
+    "jsonlite": "2.0.0"
+  },
+  "disclaimer": "Учебный исследовательский проект. Прогноз экспериментальный и не гарантирует поведение реального клиента. Выданное число - оценка модели, а не доказанная вероятность ухода: калибровка вероятностей отдельно не исследовалась."
+}

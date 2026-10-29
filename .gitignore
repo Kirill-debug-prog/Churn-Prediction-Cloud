@@ -1,0 +1,43 @@
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+.Renviron
+.Rapp.history
+renv/library/
+
+# Логи, временные файлы и системные файлы
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+__pycache__/
+node_modules/
+
+# Редакторы
+.vscode/
+.idea/
+
+# Секреты
+.env
+*.pem
+*.key
+
+# Данные не коммитятся; набор можно скачать по инструкции в data/README.md.
+data/*
+!data/README.md
+
+# Материалы отчёта и тесты не включаются в публикацию приложения.
+docs/
+tests/
+
+# В Git остаются только артефакты, необходимые для запуска API.
+artifacts/*
+!artifacts/.gitkeep
+!artifacts/README.md
+!artifacts/model.rds
+!artifacts/metadata.json
+!artifacts/metrics.json
+!artifacts/importance.json

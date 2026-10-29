@@ -1,0 +1,138 @@
+{
+  "generated_at": "2026-10-29 11:16:25 UTC",
+  "positive_class": "churn",
+  "data": {
+    "rows_in_file": 3150,
+    "duplicates_removed": 300,
+    "rows_used": 2850,
+    "n_train": 2280,
+    "n_test": 570,
+    "churn_share_train": 0.1566,
+    "churn_share_test": 0.1561,
+    "n_features": 12,
+    "excluded_features": []
+  },
+  "evaluation": {
+    "split": "Стратифицированное разбиение 80/20, seed = 42",
+    "threshold_strategy": "Порог классификации подбирается по F1 на кросс-валидационных вероятностях обучающей выборки",
+    "selection_rule": "Основная модель выбирается по средней оценке mean(F1, Recall, ROC-AUC) на тестовой выборке; если разница между моделями меньше 0.01, выбирается более простое дерево решений. Гиперпараметры и порог подбирались только кросс-валидацией на обучающей выборке.",
+    "selection_scores": {
+      "rpart": 0.9242,
+      "random_forest": 0.9439
+    }
+  },
+  "models": {
+    "rpart": {
+      "name": "rpart",
+      "label": "Дерево решений (rpart)",
+      "hyperparameters": {
+        "cp": 0.001,
+        "minsplit": 20,
+        "maxdepth": 12
+      },
+      "threshold": 0.25,
+      "cv": {
+        "roc_auc": 0.9599,
+        "at_threshold": {
+          "threshold": 0.25,
+          "accuracy": 0.939,
+          "precision": 0.7659,
+          "recall": 0.8796,
+          "f1": 0.8188,
+          "roc_auc": 0.9599,
+          "confusion": {
+            "tn": 1827,
+            "fp": 96,
+            "fn": 43,
+            "tp": 314
+          }
+        }
+      },
+      "test": {
+        "threshold": 0.25,
+        "accuracy": 0.9632,
+        "precision": 0.8617,
+        "recall": 0.9101,
+        "f1": 0.8852,
+        "roc_auc": 0.9773,
+        "confusion": {
+          "tn": 468,
+          "fp": 13,
+          "fn": 8,
+          "tp": 81
+        }
+      },
+      "test_default_threshold": {
+        "threshold": 0.5,
+        "accuracy": 0.9684,
+        "precision": 0.8901,
+        "recall": 0.9101,
+        "f1": 0.9,
+        "roc_auc": 0.9773,
+        "confusion": {
+          "tn": 471,
+          "fp": 10,
+          "fn": 8,
+          "tp": 81
+        }
+      }
+    },
+    "random_forest": {
+      "name": "random_forest",
+      "label": "Случайный лес (randomForest)",
+      "hyperparameters": {
+        "mtry": 3,
+        "nodesize": 5,
+        "ntree": 300
+      },
+      "threshold": 0.31,
+      "cv": {
+        "roc_auc": 0.9814,
+        "at_threshold": {
+          "threshold": 0.31,
+          "accuracy": 0.9531,
+          "precision": 0.8094,
+          "recall": 0.916,
+          "f1": 0.8594,
+          "roc_auc": 0.9814,
+          "confusion": {
+            "tn": 1846,
+            "fp": 77,
+            "fn": 30,
+            "tp": 327
+          }
+        }
+      },
+      "test": {
+        "threshold": 0.31,
+        "accuracy": 0.9737,
+        "precision": 0.9111,
+        "recall": 0.9213,
+        "f1": 0.9162,
+        "roc_auc": 0.994,
+        "confusion": {
+          "tn": 473,
+          "fp": 8,
+          "fn": 7,
+          "tp": 82
+        }
+      },
+      "test_default_threshold": {
+        "threshold": 0.5,
+        "accuracy": 0.9684,
+        "precision": 0.9383,
+        "recall": 0.8539,
+        "f1": 0.8941,
+        "roc_auc": 0.994,
+        "confusion": {
+          "tn": 476,
+          "fp": 5,
+          "fn": 13,
+          "tp": 76
+        }
+      }
+    }
+  },
+  "selected_model": "random_forest",
+  "selected_model_label": "Случайный лес (randomForest)"
+}

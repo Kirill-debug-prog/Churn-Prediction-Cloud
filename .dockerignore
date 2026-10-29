@@ -1,0 +1,12 @@
+.git
+data/
+docs/
+frontend/
+scripts/
+tests/
+artifacts/work/
+artifacts/*.csv
+*.Rproj
+.Rhistory
+.RData
+.env

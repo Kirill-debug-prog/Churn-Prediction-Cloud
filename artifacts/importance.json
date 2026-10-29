@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-10-29 11:18:03 UTC",
+  "model": "Случайный лес (randomForest)",
+  "method": "DALEX: пермутационная важность (потеря = 1 - AUC), 20 перемешиваний, тестовая выборка",
+  "available": true,
+  "note": "Важность признака для модели не доказывает причинно-следственную связь с оттоком: модель отражает закономерности в данных, а не причины поведения клиентов.",
+  "items": [
+    {
+      "feature": "status",
+      "label": "Статус клиента",
+      "importance": 0.07696,
+      "relative": 1,
+      "rank": 1
+    },
+    {
+      "feature": "complains",
+      "label": "Жалобы",
+      "importance": 0.04566,
+      "relative": 0.59338,
+      "rank": 2
+    },
+    {
+      "feature": "subscription_length",
+      "label": "Срок подписки, мес.",
+      "importance": 0.02769,
+      "relative": 0.3598,
+      "rank": 3
+    },
+    {
+      "feature": "seconds_of_use",
+      "label": "Секунд разговора",
+      "importance": 0.02659,
+      "relative": 0.34553,
+      "rank": 4
+    },
+    {
+      "feature": "distinct_called_numbers",
+      "label": "Уникальных номеров",
+      "importance": 0.01262,
+      "relative": 0.16403,
+      "rank": 5
+    },
+    {
+      "feature": "frequency_of_use",
+      "label": "Число звонков",
+      "importance": 0.0107,
+      "relative": 0.13909,
+      "rank": 6
+    },
+    {
+      "feature": "age_group",
+      "label": "Возрастная группа",
+      "importance": 0.00904,
+      "relative": 0.11747,
+      "rank": 7
+    },
+    {
+      "feature": "call_failure",
+      "label": "Сбои при звонках",
+      "importance": 0.00829,
+      "relative": 0.10777,
+      "rank": 8
+    },
+    {
+      "feature": "frequency_of_sms",
+      "label": "Число SMS",
+      "importance": 0.00188,
+      "relative": 0.02441,
+      "rank": 9
+    },
+    {
+      "feature": "customer_value",
+      "label": "Ценность клиента",
+      "importance": 0.00123,
+      "relative": 0.016,
+      "rank": 10
+    },
+    {
+      "feature": "charge_amount",
+      "label": "Уровень начислений",
+      "importance": 0.00074,
+      "relative": 0.00957,
+      "rank": 11
+    },
+    {
+      "feature": "tariff_plan",
+      "label": "Тарифный план",
+      "importance": 4e-05,
+      "relative": 0.0005,
+      "rank": 12
+    }
+  ]
+}

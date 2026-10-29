@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Churn Prediction Cloud — прогноз оттока клиентов</title>
+  <meta name="description" content="Учебный облачный сервис прогнозирования оттока клиентов телеком-оператора на основе машинного обучения.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Курсовая работа · Облачные технологии</p>
+      <h1>Churn Prediction Cloud</h1>
+      <p class="lead">Оценка риска оттока клиента телекоммуникационной компании. Введите характеристики клиента,
+        и модель машинного обучения, работающая в облаке, рассчитает прогноз.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="api-status" class="status status-connecting" role="status" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="api-status-text">Подключение к серверу…</span>
+      <button id="api-retry" type="button" class="btn-link" hidden>Повторить</button>
+    </div>
+
+    <p class="notice"><strong>Экспериментальный прогноз.</strong> Проект учебный: результат не гарантирует поведение
+      реального клиента, а число в ответе — оценка модели, а не доказанная вероятность ухода.</p>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Характеристики клиента</h2>
+      <form id="predict-form" novalidate>
+        <div id="form-fields" class="fields" aria-busy="true">
+          <p class="muted">Форма появится после подключения к серверу.</p>
+        </div>
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+        <div class="actions">
+          <button id="submit-btn" type="submit" class="btn btn-primary" disabled>
+            <span class="spinner" aria-hidden="true" hidden></span>
+            <span id="submit-label">Рассчитать прогноз</span>
+          </button>
+          <button id="reset-btn" type="button" class="btn" disabled>Значения по умолчанию</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="result-card" class="card result" aria-labelledby="result-title" aria-live="polite" hidden>
+      <h2 id="result-title">Результат</h2>
+      <p id="result-verdict" class="verdict"></p>
+      <div class="prob">
+        <div class="prob-head">
+          <span>Оценка риска оттока</span>
+          <strong id="result-percent"></strong>
+        </div>
+        <div class="prob-bar" aria-hidden="true">
+          <div id="result-bar" class="prob-fill"></div>
+          <div id="result-threshold" class="prob-threshold"></div>
+        </div>
+        <p id="result-threshold-text" class="muted small"></p>
+      </div>
+      <p id="result-model" class="muted"></p>
+      <ul id="result-warnings" class="warnings" hidden></ul>
+      <p id="result-disclaimer" class="muted small"></p>
+    </section>
+
+    <section class="card" aria-labelledby="model-title">
+      <h2 id="model-title">О модели и её качестве</h2>
+      <div id="model-body"><p class="muted">Загрузка…</p></div>
+    </section>
+
+    <section class="card" aria-labelledby="importance-title">
+      <h2 id="importance-title">Какие признаки важны для модели</h2>
+      <div id="importance-body"><p class="muted">Загрузка…</p></div>
+    </section>
+
+    <section class="card" aria-labelledby="limits-title">
+      <h2 id="limits-title">Ограничения</h2>
+      <ul class="plain-list">
+        <li>Модель обучена на одном открытом наборе данных (3150 клиентов одного иранского оператора); для других рынков и компаний прогноз может быть неточным.</li>
+        <li>Предсказанная вероятность не калибровалась отдельно, поэтому её нельзя читать как «шанс ухода ровно N%».</li>
+        <li>Важность признака для модели не доказывает, что признак вызывает отток: это корреляция в данных, а не причина.</li>
+        <li>Бесплатный облачный сервер «засыпает» после 15 минут без запросов; первый запрос после простоя может занять около минуты.</li>
+        <li>Введённые характеристики клиентов не сохраняются на сервере.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Данные: <a href="https://archive.ics.uci.edu/dataset/563/iranian+churn+dataset" target="_blank" rel="noopener">Iranian Churn</a>
+        (2020), UCI Machine Learning Repository,
+        <a href="https://doi.org/10.24432/C5JW3Z" target="_blank" rel="noopener">DOI 10.24432/C5JW3Z</a>,
+        лицензия <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+      <p>Учебный проект. Стек: R (rpart, randomForest, DALEX, plumber), Docker, HTML/CSS/JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="validation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
